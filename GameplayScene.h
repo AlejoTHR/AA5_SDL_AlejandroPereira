@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 #include "SpaceshipClass.h"
+#include "Bullets.h"
+#include "Asteroids.h"
 
 class GameplayScene : public Scene {
 

@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include <vector>
 
+
 class Scene {
 protected:
 	std::vector<GameObject*> objects;
@@ -9,29 +10,15 @@ protected:
 	std::string targetScene;
 
 public:
-	virtual void Start(SDL_Renderer* rend) {
-		finished = false;
 
-	};
+	virtual void Start(SDL_Renderer* rend);
 
-	virtual void Update(float dt) {
-		for (GameObject* var : objects)
-		{
-			var->Update(dt);
-		}
-	};
+	virtual void Update(float dt);
 
-	virtual void Render(SDL_Renderer* rend) {
-		for (GameObject* var : objects)
-		{
-			var->Render(rend);
-		}
-	
-	};
+	virtual void Render(SDL_Renderer* rend);
 
 	virtual void Exit() = 0;
 
-	bool IsFinished() { return finished; }
-	std::string GetTargetScene() { return targetScene; }
-
+	bool IsFinished();
+	std::string GetTargetScene();
 };

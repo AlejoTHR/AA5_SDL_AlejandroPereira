@@ -19,15 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Asteroids.cpp" />
+    <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
+    <ClCompile Include="HighscoreScene.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="Spaceship.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Asteroids.h" />
+    <ClInclude Include="Bullets.h" />
     <ClInclude Include="Game Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameplayScene.h" />
