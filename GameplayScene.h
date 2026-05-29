@@ -6,6 +6,11 @@
 
 class GameplayScene : public Scene {
 
+	SDL_Renderer* renderer = nullptr; // RENDER RESTART, INSTANTIATED IN START() FUNCTION FOR UODATE FUNCTION CALSS
+
+	float asteroidSpawnTime = 0; // TIME PASSED FOR AN ASTEROID TO SPAWN
+	float asteroidSpawnTimeMax = 5.0f; // TIME TO PASS FOR AN ASTEROID TO SPAWN
+
 public:
 	GameplayScene() : Scene(){}
 
