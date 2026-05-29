@@ -1,8 +1,12 @@
 #pragma once
 #include "Utils.h"
+#include "Cons.h"
 #include "SDL.h"
 #include <SDL_image.h>
+#include <cmath>
 #include <iostream>
+
+
 class GameObject 
 {
 protected:
@@ -36,4 +40,6 @@ public:
 	GameObject(SDL_Renderer* renderer, Vector2 textSize, Vector2 textPadding);
 	void Render(SDL_Renderer* renderer);
 	void Update(float dt);
+	Vector2 GetForwardVector();
+	void OutofBoundsTeleport();
 };

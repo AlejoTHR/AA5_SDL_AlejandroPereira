@@ -1,7 +1,7 @@
 #include "HighscoreScene.h"
 
 
-/*
+
 void HighscoreScene::Start(SDL_Renderer* rend) {
 	Scene::Start(rend);
 
@@ -9,7 +9,7 @@ void HighscoreScene::Start(SDL_Renderer* rend) {
 
 void HighscoreScene::Render(SDL_Renderer* rend) {
 	Scene::Render(rend);
-
+	
 }
 
 
@@ -23,4 +23,3 @@ void HighscoreScene::Update(float dt) {
 void HighscoreScene::Exit() {
 
 }
-*/

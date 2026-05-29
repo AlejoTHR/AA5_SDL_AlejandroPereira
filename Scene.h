@@ -5,7 +5,9 @@
 
 class Scene {
 protected:
+
 	std::vector<GameObject*> objects;
+	std::vector<GameObject*> AuxItemsinUpdate;
 	bool finished;
 	std::string targetScene;
 
@@ -21,4 +23,8 @@ public:
 
 	bool IsFinished();
 	std::string GetTargetScene();
+
+	void InstantiateObject(GameObject* newItem);
+	void ClearAllAuxObjects();
+
 };

@@ -1,37 +1,32 @@
 #pragma once
 #include "Bullets.h"
 
-Bullets::Bullets(SDL_Renderer* renderer, Vector2 pos, float rot, Vector2 scl) 
-	: GameObject(GameObject(renderer, Vector2(8, 8), Vector2(34, 32))) {
-	
+Bullets::Bullets(SDL_Renderer* renderer, Vector2 pos, Vector2 dir) :
+	GameObject(renderer, Vector2(8, 8), Vector2(32, 36)){
 	position = pos;
-	rotation = rot;
-	scale = scl;
+	bulletDirection = dir;
+	bulletVelocity = 500;
+}
 
-	linearVelocity = Vector2();
-	angularVelocity = 0.0f;
 
-	linearAcceleration = Vector2();
-	angularAcceleration = 0.0f;
 
-	linearDrag = 1.2f;
-	angularDrag = 6.0f;
+void Bullets::UpdateMovement(float dt) {
+	position += bulletDirection * bulletVelocity * dt;
+	OutOfBoundsDestroy();
+}
 
-	linearAccFactor = 500.f; // PIXELES / SECOND ^2
-	angularAccFactor = 180000.0f; // GRADOS / SECOND ^2
+void Bullets::OutOfBoundsDestroy() {
+	if (position.x > 810 || position.x < 0) {
+		Bullets::~Bullets();
+	}
+	if (position.y < 0 || position.y > 610)
+	{
+		Bullets::~Bullets();
+	}
 
 }
 
 
-void Bullets::UpdateMovement(float dt) {
-
-	Vector2 dir;
-
-	float rotInRad = rotation * (M_PI / 180.f);
-	dir.x = cos(rotInRad);
-	dir.y = sin(rotInRad);
-
-
-	linearAcceleration = dir * linearAccFactor;
+Bullets::~Bullets() {
 
 }

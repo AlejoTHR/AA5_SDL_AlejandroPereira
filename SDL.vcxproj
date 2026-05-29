@@ -34,14 +34,15 @@
   <ItemGroup>
     <ClInclude Include="Asteroids.h" />
     <ClInclude Include="Bullets.h" />
-    <ClInclude Include="Game Engine.h" />
+    <ClInclude Include="Cons.h" />
+    <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="HighscoreScene.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="SpaceshipClass.h" />
+    <ClInclude Include="Spaceship.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

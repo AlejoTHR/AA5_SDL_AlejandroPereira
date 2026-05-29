@@ -1,8 +1,22 @@
-#include "Game Engine.h"
+#include "GameEngine.h"
+
+int GameEngine::GetwWidth() {
+	return wWidth;
+}
+int GameEngine::GetwHeigth() {
+	return wHeight;
+}
+SDL_Window* GameEngine::GetWindow() {
+	return window;
+}
+SDL_Renderer* GameEngine::getRenderer() {
+	return renderer;
+}
+
 
 GameEngine::GameEngine(int windowWith, int windowHeigh) {
 	InitSDL();
-	InitWindowAndRenderer(windowWith,windowHeigh);
+	InitWindowAndRenderer(GetwWidth(), GetwHeigth());
 }
 void GameEngine::InitSDL() {
 	int result = SDL_Init(SDL_INIT_VIDEO);
@@ -41,6 +55,7 @@ void GameEngine::Update() {
 	std::map<std::string, Scene*> gameScene;
 	//gameScene["MainMenu"] = new MenuScene();
 	gameScene["Gameplay"] = new GameplayScene();
+	gameScene["MenuScene"] = new MenuScene();
 	gameScene["HighScore"] = new HighscoreScene();
 
 	Scene* currentScene = gameScene["Gameplay"];
@@ -75,6 +90,7 @@ void GameEngine::Update() {
 		}
 	}
 }
+
 // spritesheet nave ponerla en la escena gameplay y que rote con el deltatime
 void GameEngine::Finish() {
 	SDL_DestroyRenderer(renderer);

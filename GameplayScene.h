@@ -1,12 +1,10 @@
 #pragma once
 #include "Scene.h"
-#include "SpaceshipClass.h"
+#include "Spaceship.h"
 #include "Bullets.h"
 #include "Asteroids.h"
 
 class GameplayScene : public Scene {
-
-
 
 public:
 	GameplayScene() : Scene(){}

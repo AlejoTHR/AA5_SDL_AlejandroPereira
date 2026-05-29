@@ -1,13 +1,16 @@
 #pragma once
-#include "SpaceshipClass.h"
-#include "Bullets.h"
+#include "Spaceship.h"
+#include "GameplayScene.h"
 
-Spaceship::Spaceship(SDL_Renderer* renderer, Vector2 pos, float rot, Vector2 scl) 
+
+Spaceship::Spaceship(SDL_Renderer* renderer, Vector2 pos, float rot, Vector2 scl, GameplayScene* shipScene) 
 	: GameObject(renderer, Vector2(32,40), Vector2(0,0)) {
 
 	position = pos;
 	rotation = rot;
 	scale = scl;
+	Render = renderer;
+	ShipScene = shipScene;
 
 	linearVelocity = Vector2();
 	angularVelocity = 0.0f;
@@ -18,8 +21,8 @@ Spaceship::Spaceship(SDL_Renderer* renderer, Vector2 pos, float rot, Vector2 scl
 	linearDrag = 1.2f;
 	angularDrag = 6.0f;
 
-	linearAccFactor = 500.f; // PIXELES / SECOND ^2
-	angularAccFactor = 180000.0f; // GRADOS / SECOND ^2
+	linearAccFactor = SHIP_LIN_ACC_FACTOR; // PIXELES / SECOND ^2
+	angularAccFactor = SHIP_ANG_ACC_FACTOR; // GRADOS / SECOND ^2
 
 }
 
@@ -39,25 +42,14 @@ void Spaceship::UpdateMovement(float dt){
 
 	if (IM.GetKey(SDLK_w, HOLD))
 	{
-		Vector2 dir;
-		float rotInRad = rotation * (M_PI / 180.f);
-		dir.x = cos(rotInRad);
-		dir.y = sin(rotInRad);
-
-
-		linearAcceleration = dir * linearAccFactor;
-
+		linearAcceleration = GetForwardVector() * linearAccFactor;
 	}
 
-	GameObject::UpdateMovement(dt);
-}
-
-void CreateBullets(float dt, SDL_Renderer* renderer, Vector2 position, float rotation, Vector2 scale) {
-	if(IM.GetKey(SDLK_SPACE, DOWN))
+	if (IM.GetKey(SDLK_SPACE, DOWN))
 	{
-		GameObject* newBullet = new Bullets(renderer, position, rotation, scale);
-
+		Bullets* newBullet = new Bullets(Render, position, GetForwardVector());
+		ShipScene->InstantiateObject(newBullet);
 	}
-
-	
+	GameObject::OutofBoundsTeleport();
+	GameObject::UpdateMovement(dt);
 }
