@@ -9,7 +9,7 @@ class Asteroids : public GameObject{
 	Vector2 randomStartPosition;
     Vector2 direction;
     
-    int points;
+    unsigned short points;
     AsteroidSize size;
     
 
@@ -17,7 +17,7 @@ public:
 	Asteroids(SDL_Renderer* renderer);
     void UpdateMovement(float dt);
     
-    int GetPoints() const { return points; }
+    unsigned short GetPoints() { return points; }
 
     AsteroidSize GetSize() const { return size; }
 

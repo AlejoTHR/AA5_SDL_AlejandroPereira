@@ -36,7 +36,6 @@ void Scene::Update(float dt) {
 		objects.insert(objects.end(), AuxItemsinUpdate.begin(), AuxItemsinUpdate.end());
 		AuxItemsinUpdate.clear();
 	}
-
 };
 
 void Scene::Render(SDL_Renderer* rend) {

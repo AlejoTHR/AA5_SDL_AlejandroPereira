@@ -11,8 +11,14 @@ class GameplayScene : public Scene {
 	float asteroidSpawnTime = 0; // TIME PASSED FOR AN ASTEROID TO SPAWN
 	float asteroidSpawnTimeMax = 5.0f; // TIME TO PASS FOR AN ASTEROID TO SPAWN
 
+protected:
+	unsigned int pointsCollected;
+
 public:
 	GameplayScene() : Scene(){}
+
+	unsigned int GetPointsCollected();
+	void SetpointsCollected(unsigned short pointscollected);
 
 	void Start(SDL_Renderer* rend) override;
 	void Update(float dt) override;

@@ -6,6 +6,8 @@ Bullets::Bullets(SDL_Renderer* renderer, Vector2 pos, Vector2 dir) :
 	position = pos;
 	bulletDirection = dir;
 	bulletVelocity = 500;
+
+	radius = 8;
 }
 
 
@@ -16,10 +18,10 @@ void Bullets::UpdateMovement(float dt) {
 }
 
 void Bullets::OutOfBoundsDestroy() {
-	if (position.x > 810 || position.x < 0) {
+	if (position.x > WINDOW_WIDTH_TP || position.x < 0) {
 		Bullets::~Bullets();
 	}
-	if (position.y < 0 || position.y > 610)
+	if (position.y < 0 || position.y > WINDOW_HEGITH_TP)
 	{
 		Bullets::~Bullets();
 	}
@@ -28,5 +30,5 @@ void Bullets::OutOfBoundsDestroy() {
 
 
 Bullets::~Bullets() {
-
+	!isActive;
 }

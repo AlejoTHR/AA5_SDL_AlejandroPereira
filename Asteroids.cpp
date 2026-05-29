@@ -2,7 +2,7 @@
 #include "Asteroids.h"
 
 Asteroids::Asteroids(SDL_Renderer* renderer) 
-	: GameObject(GameObject(renderer, Vector2(40, 40), Vector2(40, 0))) {
+	: GameObject(renderer, Vector2(40, 40), Vector2(40, 0)) {
 
 	position = RandomAsteroidsSpawn();
     rotation = RandomAsteroidsRotation();
@@ -56,13 +56,19 @@ Vector2 Asteroids::RandomAsteroidSize() {
     size = (AsteroidSize)randSize;
     switch (randSize) {
     case BIG:
+        radius = 40 * 1.5;
         scale = Vector2 (1.5f,1.5f);
+        points = ASTEROID_BIG_POINTS;
         break;
     case MEDIUM:
+        radius = 40;
         scale = Vector2 (1.0f,1.0f);
+        points = ASTEROID_MEDIUM_POINTS;
         break;
     case SMALL:
+        radius = 40 * 0.5;
         scale = Vector2(0.5f, 0.5f);
+        points = ASTEROID_SMALL_POINTS;
         break;
     }
     return scale;

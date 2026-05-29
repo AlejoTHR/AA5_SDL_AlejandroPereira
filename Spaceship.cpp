@@ -18,12 +18,20 @@ Spaceship::Spaceship(SDL_Renderer* renderer, Vector2 pos, float rot, Vector2 scl
 	linearAcceleration = Vector2();
 	angularAcceleration = 0.0f;
 
-	linearDrag = 1.2f;
-	angularDrag = 6.0f;
+	linearDrag = LINEAR_DRAG;
+	angularDrag = ANGULAR_DRAG;
 
 	linearAccFactor = SHIP_LIN_ACC_FACTOR; // PIXELES / SECOND ^2
 	angularAccFactor = SHIP_ANG_ACC_FACTOR; // GRADOS / SECOND ^2
 
+
+}
+
+unsigned short Spaceship::GetLifes() {
+	return lifes;
+}
+void Spaceship::ShipDamaged() {
+	lifes--;
 }
 
 void Spaceship::UpdateMovement(float dt){
